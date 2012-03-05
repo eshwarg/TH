@@ -5,7 +5,7 @@ class CreateSections < ActiveRecord::Migration
       t.string :plant_spacing_id
       t.integer :name
       t.string :code
-      t.string :area      
+      t.float :area      
       t.string :year_of_plant      
       t.timestamps
     end

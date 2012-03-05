@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120305180704) do
+ActiveRecord::Schema.define(:version => 20120305181231) do
 
   create_table "census", :force => true do |t|
     t.string   "section_id"
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(:version => 20120305180704) do
     t.datetime "updated_at",   :null => false
   end
 
+  create_table "plucking_rounds", :force => true do |t|
+    t.integer  "section_id"
+    t.date     "plucking_date"
+    t.integer  "green_leaves_harvested"
+    t.integer  "pluckers"
+    t.integer  "area_covered"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
   create_table "prunes", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -59,7 +69,7 @@ ActiveRecord::Schema.define(:version => 20120305180704) do
     t.string   "plant_spacing_id"
     t.integer  "name"
     t.string   "code"
-    t.string   "area"
+    t.float    "area"
     t.string   "year_of_plant"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false

@@ -8,5 +8,6 @@ class Section < ActiveRecord::Base
 
    has_many :census
    has_many :yields
+   has_many :plucking_rounds
  
 end
