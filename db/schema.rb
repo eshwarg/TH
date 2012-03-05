@@ -22,21 +22,19 @@ ActiveRecord::Schema.define(:version => 20120305163903) do
   create_table "plant_spacings", :force => true do |t|
     t.string   "spacing"
     t.integer  "no_of_plants"
-    t.integer  "section_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
   create_table "sections", :force => true do |t|
     t.integer  "estate_id"
+    t.string   "plant_spacing_id"
     t.integer  "name"
     t.string   "code"
     t.string   "area"
-    t.string   "type_of_plant"
     t.string   "year_of_plant"
-    t.string   "spacing"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end
