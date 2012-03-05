@@ -7,5 +7,6 @@ class Section < ActiveRecord::Base
    has_many :clones, :through => :section_clones, :source => :clone
 
    has_many :census
+   has_many :yields
  
 end
