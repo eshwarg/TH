@@ -2,11 +2,11 @@ class CreateSections < ActiveRecord::Migration
   def change
     create_table :sections do |t|
       t.integer :estate_id
-      t.string :plant_spacing_id
-      t.integer :name
+      t.integer :plant_spacing_id
+      t.string :name
       t.string :code
       t.float :area      
-      t.string :year_of_plant      
+      t.string :year_of_plant
       t.timestamps
     end
   end
