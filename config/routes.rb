@@ -27,6 +27,7 @@ Th::Application.routes.draw do
 
   resources :estates
   resources :plant_spacings
+  resources :sections
 
   # Sample resource route with sub-resources:
   #   resources :products do
