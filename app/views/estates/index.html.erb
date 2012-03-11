@@ -1,0 +1,37 @@
+
+<p> <%= link_to "New Estate", new_estate_path %> </p>
+
+<p> List of Estates </p>
+
+<% if @estates.empty? %>
+
+    <p class="subText">
+       There are no estates created right now.  <%= link_to "Add New", new_estate_path %>
+    </p>
+    
+<% else %>
+
+    <table id="mytable"  cellspacing="0" cellpadding="0">
+    <thead> 
+      <tr>
+        <th>Name</th>       
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <% for estate in @estates %>
+          <tr>
+              <td><%= estate.name %></td>  &nbsp;
+              <td>
+                 <%= link_to "Edit", edit_estate_path(estate) %>  &nbsp;   &nbsp;                  
+              </td>
+              <td>
+                 <%= link_to "Delete", estate_path(estate), :method => :delete %>
+              </td>
+          </tr>         
+    <% end %>
+
+  </table> 
+<% end %>
+

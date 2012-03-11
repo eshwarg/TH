@@ -1,0 +1,10 @@
+    
+    <%= render "shared/error_messages", :target => @estate %>
+
+    <p>
+       <%= f.label :name, "Estate Name" %> <br/>
+       <%= f.text_field :name %>
+    </p>
+
+    <p> <%= f.submit(@estate.new_record? ? "Create Estate" : "Update Estate") %> </p>
+

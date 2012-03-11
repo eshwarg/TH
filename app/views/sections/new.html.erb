@@ -1,0 +1,10 @@
+<p> Creation of Section </p>
+
+<%= form_for @section do |f| %>    
+
+    <%= render :partial => 'form',  :locals => { :f => f }  %>
+ 
+<% end %>
+
+
+<%= link_to "Cancel", sections_path %>

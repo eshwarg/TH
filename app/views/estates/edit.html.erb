@@ -1,0 +1,10 @@
+<p> Updation of Estate </p>
+
+<%= form_for @estate, :url => estate_path(@estate) do |f| %>    
+
+    <%= render :partial => 'form',  :locals => { :f => f }  %>    
+
+<% end %>
+
+
+<%= link_to "Cancel", estates_path %>
