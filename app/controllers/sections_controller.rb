@@ -1,4 +1,4 @@
-class SectionsController < ApplicationController
+class SectionsController < ApplicationController 
 
   def index
    @sections = Section.find :all
@@ -8,9 +8,9 @@ class SectionsController < ApplicationController
    @section = Section.new
   end
 
-  def create  
+  def create
    @section = Section.new(params[:section])
-   if @section.valid?
+   if @section.valid?     
      @section.save
      redirect_to sections_path
    else
@@ -36,5 +36,6 @@ class SectionsController < ApplicationController
     @section.destroy
     redirect_to sections_path
   end
+
 
 end

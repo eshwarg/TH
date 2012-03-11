@@ -1,0 +1,7 @@
+<p> Updation of Sections </p>
+
+<%= form_for @section, :url => section_path(@section) do |f| %>    
+
+    <%= render :partial => 'form',  :locals => { :f => f }  %>    
+
+<% end %>

@@ -2,8 +2,39 @@
     <%= render "shared/error_messages", :target => @section %>
 
     <p>
-       <%= f.label :name, "Estate Name" %> <br/>
+       <%= f.label :estate_id, "Select Estate" %><br />      
+       <%= f.collection_select :estate_id, Estate.find(:all, :order => "name"), :id, :name,
+                               {:include_blank => "Select Estate"}, {"style" => "width:250px" } %>
+    </p>
+
+    <p>
+       <%= f.label :plant_spacing_id, "Select Plant Space" %><br />
+       <%= f.collection_select :plant_spacing_id, PlantSpacing.find(:all, :order => "spacing"), :id, :spacing,
+                               {:include_blank => "Select Plant Space"}, {"style" => "width:250px" } %> 
+    </p>
+
+    <p>
+       <%= f.label :name, "Section Name" %> <br/>
        <%= f.text_field :name %>
     </p>
 
-    <p> <%= f.submit(@estate.new_record? ? "Create Estate" : "Update Estate") %> </p>
+    <p>
+       <%= f.label :code, "Section Code" %> <br/>
+       <%= f.text_field :code %>
+    </p>
+
+    <p>
+       <%= f.label :area, "Section Area" %> <br/>
+       <%= f.text_field :area %>
+    </p>
+
+    <p>
+       <%= f.label :year_of_plant, "Year" %> <br/>
+       <%= f.text_field :year_of_plant %>
+    </p>
+
+    <p> 
+      <%= f.submit(@section.new_record? ? "Create Section" : "Update Section") %> &nbsp; Or &nbsp;
+      <%= link_to "Cancel", sections_path %>
+    </p>
+

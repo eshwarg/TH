@@ -1,0 +1,43 @@
+
+<p> <%= link_to "New Section", new_section_path %> </p>
+
+<p> List of Sections </p>
+
+<% if @sections.empty? %>
+
+    <p class="subText">
+       There are no Sections created right now.  <%= link_to "Add New", new_section_path %>
+    </p>
+    
+<% else %>
+
+    <table id="mytable"  cellspacing="0" cellpadding="0">
+    <thead> 
+      <tr>
+        <th>Name</th>
+        <th>Area</th>
+        <th>Code </th>
+        <th>Year of Plant </th>   
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <% for section in @sections %>
+          <tr>
+              <td><%= section.name %></td>  &nbsp;
+              <td><%= section.area %></td>  &nbsp;
+              <td><%= section.code %></td>  &nbsp;
+              <td><%= section.year_of_plant %></td>  &nbsp;
+              <td>
+                 <%= link_to "Edit", edit_section_path(section) %>  &nbsp;   &nbsp;                  
+              </td>
+              <td>
+                 <%= link_to "Delete", section_path(section), :method => :delete %>
+              </td>
+          </tr>         
+    <% end %>
+
+  </table> 
+<% end %>
+
