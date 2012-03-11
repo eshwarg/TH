@@ -1,0 +1,7 @@
+<p> Updation of Clone </p>
+
+<%= form_for @clone, :url => clone_path(@clone) do |f| %>    
+
+    <%= render :partial => 'form',  :locals => { :f => f }  %>    
+
+<% end %>

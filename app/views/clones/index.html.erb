@@ -1,0 +1,37 @@
+
+<p> <%= link_to "New clone", new_clone_path %> </p>
+
+<p> List of clones </p>
+
+<% if @clones.empty? %>
+
+    <p class="subText">
+       There are no clones created right now.  <%= link_to "Add New", new_clone_path %>
+    </p>
+    
+<% else %>
+
+    <table id="mytable"  cellspacing="0" cellpadding="0">
+    <thead> 
+      <tr>
+        <th>Name</th>       
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <% for clone in @clones %>
+          <tr>
+              <td><%= clone.name %></td>  &nbsp;
+              <td>
+                 <%= link_to "Edit", edit_clone_path(clone) %>  &nbsp;   &nbsp;                  
+              </td>
+              <td>
+                 <%= link_to "Delete", clone_path(clone), :method => :delete %>
+              </td>
+          </tr>         
+    <% end %>
+
+  </table> 
+<% end %>
+

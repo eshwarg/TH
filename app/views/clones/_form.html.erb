@@ -1,0 +1,13 @@
+    
+    <%= render "shared/error_messages", :target => @clone %>
+
+    <p>
+       <%= f.label :name, "Name" %> <br/>
+       <%= f.text_field :name %>
+    </p>
+
+    <p> 
+        <%= f.submit(@clone.new_record? ? "Create Clone" : "Update Clone") %>  &nbsp; Or &nbsp;
+        <%= link_to "Cancel", clones_path %>
+    </p>
+
