@@ -1,0 +1,2 @@
+module PlantSpacingsHelper
+end

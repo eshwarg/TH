@@ -1,0 +1,39 @@
+
+<p> <%= link_to "New Plant Spacing", new_plant_spacing_path %> </p>
+
+<p> List of PLant Spacings </p>
+
+<% if @plant_spacings.empty? %>
+
+    <p class="subText">
+       There are no Plant Spaces created right now.  <%= link_to "Add New", new_plant_spacing_path %>
+    </p>
+    
+<% else %>
+
+    <table id="mytable"  cellspacing="0" cellpadding="0">
+    <thead> 
+      <tr>
+        <th>Plant Space Name</th>
+        <th>Number Of Plants </th>      
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <% for plant_space in @plant_spacings %>
+          <tr>
+              <td><%= plant_space.spacing %></td>  &nbsp;
+              <td><%= plant_space.no_of_plants %></td>  &nbsp;
+              <td>
+                 <%= link_to "Edit", edit_plant_spacing_path(plant_space) %>  &nbsp;   &nbsp;                  
+              </td>
+              <td>
+                 <%= link_to "Delete", plant_spacing_path(plant_space), :method => :delete %>
+              </td>
+          </tr>         
+    <% end %>
+
+  </table> 
+<% end %>
+

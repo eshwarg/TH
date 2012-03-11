@@ -1,0 +1,18 @@
+    
+    <%= render "shared/error_messages", :target => @plant_spacing %>
+
+    <p>
+       <%= f.label :spacing, "Plant Spacing Name" %> <br/>
+       <%= f.text_field :spacing %>
+    </p>
+
+    <p>
+       <%= f.label :no_of_plants, "Number Of Plants" %> <br/>
+       <%= f.text_field :no_of_plants %>
+    </p>
+
+    <p> 
+      <%= f.submit(@plant_spacing.new_record? ? "Create Plant Spacing" : "Update Plant Spacing") %> &nbsp; Or &nbsp;
+      <%= link_to "Cancel", plant_spacings_path %>
+    </p>
+
