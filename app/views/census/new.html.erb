@@ -1,0 +1,7 @@
+<p> Creation of Census </p>
+
+<%= form_for @census, :url => census_path do |f| %>
+
+    <%= render :partial => 'form',  :locals => { :f => f }  %>
+ 
+<% end %>

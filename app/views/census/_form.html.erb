@@ -1,0 +1,29 @@
+
+    <%= render "shared/error_messages", :target => @census %>
+
+    <p>
+       <%= f.label :section_id, "Select Section" %><br />      
+       <%= f.collection_select :section_id, Section.find(:all), :id, :name,
+                               {:include_blank => "Select Section"}, {"style" => "width:250px" } %>
+    </p>
+
+    <p>
+       <%= f.label :year, "Year" %> <br/>
+       <%= f.text_field :year %>
+    </p>
+
+    <p>
+       <%= f.label :no_of_plants, "Number Of Plants" %> <br/>
+       <%= f.text_field :no_of_plants %>
+    </p>
+
+    <p>
+       <%= f.label :census_date, "Date" %> <br/>
+       <%= f.text_field :census_date %>
+    </p>
+
+    <p> 
+      <%= f.submit(@census.new_record? ? "Create Census" : "Update Census") %> &nbsp; Or &nbsp;
+      <%= link_to "Cancel", census_path %>
+    </p>
+

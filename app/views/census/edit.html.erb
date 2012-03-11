@@ -1,0 +1,7 @@
+<p> Updation of Census </p>
+
+<%= form_for @census, :url => censu_path(@census) do |f| %>    
+
+    <%= render :partial => 'form',  :locals => { :f => f }  %>    
+
+<% end %>

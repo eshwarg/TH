@@ -1,0 +1,43 @@
+
+<p> <%= link_to "New Section Census", new_censu_path %> </p>
+
+<p> List of Census </p>
+
+<% if @census.empty? %>
+
+    <p class="subText">
+       There are no section census created right now.  <%= link_to "Add New", new_censu_path %>
+    </p>
+    
+<% else %>
+
+    <table id="mytable"  cellspacing="0" cellpadding="0">
+    <thead> 
+      <tr>
+        <th>Section</th>
+        <th>Year</th>
+        <th>Number Of Plants</th>
+        <th>Date</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <% for census in @census %>
+          <tr>
+              <td><%= census.section.name %></td>  &nbsp;
+              <td><%= census.year %></td>  &nbsp;
+              <td><%= census.no_of_plants %></td>  &nbsp;
+              <td><%= census.census_date %></td>  &nbsp;
+              <td>
+                 <%= link_to "Edit", edit_censu_path(census) %>  &nbsp;   &nbsp;                  
+              </td>
+              <td>
+                 <%= link_to "Delete", censu_path(census), :method => :delete %>
+              </td>
+          </tr>         
+    <% end %>
+
+  </table> 
+<% end %>
+
