@@ -9,5 +9,7 @@ class Section < ActiveRecord::Base
    has_many :census
    has_many :yields
    has_many :plucking_rounds
+
+   validates :estate_id, :plant_spacing_id, :name, :code, :area, :year_of_plant, :presence => true
  
 end

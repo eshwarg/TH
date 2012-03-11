@@ -1,7 +1,7 @@
 class PlantSpacing < ActiveRecord::Base
 
    has_many :sections
-
-   validates_presence_of :spacing, :no_of_plants
+   
+   validates :spacing, :no_of_plants, :presence => true
 
 end

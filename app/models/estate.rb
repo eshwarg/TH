@@ -2,6 +2,6 @@ class Estate < ActiveRecord::Base
 
    has_many :sections
 
-   validates_presence_of :name
+   validates :name, :presence => true 
    
 end
