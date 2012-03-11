@@ -1,0 +1,34 @@
+
+    <%= render "shared/error_messages", :target => @plucking_round %>
+
+    <p>
+       <%= f.label :section_id, "Select Section" %><br />      
+       <%= f.collection_select :section_id, Section.find(:all), :id, :name,
+                               {:include_blank => "Select Section"}, {"style" => "width:250px" } %>
+    </p>
+
+    <p>
+       <%= f.label :plucking_date, "Date" %> <br/>
+       <%= f.text_field :plucking_date %>
+    </p>
+
+    <p>
+       <%= f.label :green_leaves_harvested, "Leaves Harvested" %> <br/>
+       <%= f.text_field :green_leaves_harvested %>
+    </p>
+
+    <p>
+       <%= f.label :pluckers, "Pluckers" %> <br/>
+       <%= f.text_field :pluckers %>
+    </p>
+
+    <p>
+       <%= f.label :area_covered, "Area" %> <br/>
+       <%= f.text_field :area_covered %>
+    </p>
+
+    <p> 
+      <%= f.submit(@plucking_round.new_record? ? "Create Plucking Round" : "Update Plucking Round") %> &nbsp; Or &nbsp;
+      <%= link_to "Cancel", plucking_rounds_path %>
+    </p>
+

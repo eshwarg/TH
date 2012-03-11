@@ -1,0 +1,45 @@
+
+<p> <%= link_to "New Plucking Round", new_plucking_round_path %> </p>
+
+<p> List of Plucking Rounds </p>
+
+<% if @plucking_rounds.empty? %>
+
+    <p class="subText">
+       There are no Plucking Rounds created right now.  <%= link_to "Add New", new_plucking_round_path %>
+    </p>
+    
+<% else %>
+
+    <table id="mytable"  cellspacing="0" cellpadding="0">
+    <thead> 
+      <tr>
+        <th>Section</th>
+        <th>Date</th>
+        <th>Leaves Harvested </th>
+        <th>Pluckers</th>   
+        <th> Area </th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <% for plucking_round in @plucking_rounds %>
+          <tr>
+              <td><%= plucking_round.section.name %></td>  &nbsp;
+              <td><%= plucking_round.plucking_date %></td>  &nbsp;
+              <td><%= plucking_round.green_leaves_harvested %></td>  &nbsp;
+              <td><%= plucking_round.pluckers %></td>  &nbsp;
+              <td><%= plucking_round.area_covered %></td>  &nbsp;
+              <td>
+                 <%= link_to "Edit", edit_plucking_round_path(plucking_round) %>  &nbsp;   &nbsp;                  
+              </td>
+              <td>
+                 <%= link_to "Delete", plucking_round_path(plucking_round), :method => :delete %>
+              </td>
+          </tr>         
+    <% end %>
+
+  </table> 
+<% end %>
+
