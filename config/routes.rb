@@ -29,6 +29,7 @@ Th::Application.routes.draw do
   resources :plant_spacings
   resources :sections
   resources :clones
+  resources :census
 
   # Sample resource route with sub-resources:
   #   resources :products do
