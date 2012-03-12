@@ -6,8 +6,51 @@
        <%= f.text_field :name %>
     </p>
 
-    <p> 
+    <% if !@clone.new_record? %>
+
+      <% @clone.section_clones.each do |f| %>     
+          
+          <p>
+              <label> Select Section </label> <br/>
+              <select name="section[name][]">
+                  <option value=''>Select Section</option>
+                  <% @sections.each do |section| %>
+                     <% if section.id ==  f.section_id %>
+                       <% selected_value = 'selected' %>
+                     <% else %>
+                       <% selected_value = '' %>
+                     <% end %>                    
+                     <option selected='<%= selected_value %>'>
+                        <%= section.name %>
+                     </option>
+                  <% end %>
+              </select>
+          </p>
+
+      <% end %>
+
+     <% end %>
+   
+    <p id="sections"></p>
+
+    <a href="" class="add-more" onClick="addnewsections(); return false;"> Add Sections</a><br/>
+
+    <p>
         <%= f.submit(@clone.new_record? ? "Create Clone" : "Update Clone") %>  &nbsp; Or &nbsp;
         <%= link_to "Cancel", clones_path %>
     </p>
+
+
+<script type="text/javascript">   
+
+ id = 1;
+function addnewsections()
+ {
+
+    $j('#sections').append("<li id='row" + id + "'><select class='apart required' id='section"+id+"' name='section[name][]'><option value=''>Select Section</option><% @sections.each do |section| %><option value='<%= section.id %>'><%= section.name %></option><% end %></select></li>");
+    id = (id - 1) + 2;
+   
+ }
+
+</script>     
 

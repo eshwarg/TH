@@ -1,5 +1,8 @@
 class CensusController < ApplicationController
 
+  layout 'main'
+  before_filter :selected_tab
+
   def index
    @census = Census.find :all
   end
@@ -35,6 +38,12 @@ class CensusController < ApplicationController
     @census = Census.find(params[:id])
     @census.destroy
     redirect_to census_path
+  end
+
+  private
+	
+  def selected_tab
+    @select = "census"
   end
 
 end

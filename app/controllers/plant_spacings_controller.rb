@@ -1,5 +1,8 @@
 class PlantSpacingsController < ApplicationController
 
+  layout 'main'
+  before_filter :selected_tab
+
   def index
    @plant_spacings = PlantSpacing.find :all
   end
@@ -35,6 +38,12 @@ class PlantSpacingsController < ApplicationController
     @plant_spacing = PlantSpacing.find(params[:id])
     @plant_spacing.destroy
     redirect_to plant_spacings_path
+  end
+
+  private
+
+  def selected_tab
+   @select = "plant_spacings"
   end
 
 end

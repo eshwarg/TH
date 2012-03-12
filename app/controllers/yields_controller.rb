@@ -1,5 +1,8 @@
 class YieldsController < ApplicationController
 
+  layout 'main'
+  before_filter :selected_tab
+
   def index
    @yields = Yield.find :all
   end
@@ -35,6 +38,12 @@ class YieldsController < ApplicationController
     @yield = Yield.find(params[:id])
     @yield.destroy
     redirect_to yields_path
+  end
+
+  private
+
+  def selected_tab
+    @select = "yields"
   end
 
 end

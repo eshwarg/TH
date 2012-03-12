@@ -1,5 +1,7 @@
 class EstatesController < ApplicationController
 
+  layout 'main'
+  before_filter :selected_tab
   
   def index
    @estates = Estate.find :all
@@ -36,6 +38,12 @@ class EstatesController < ApplicationController
     @estate = Estate.find(params[:id])
     @estate.destroy
     redirect_to estates_path
+  end
+
+  private
+
+  def selected_tab
+   @select = "estates"
   end
 
 

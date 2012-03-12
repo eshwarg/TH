@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tea Harvesting</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application", 'jquery' %>
+  
+  <script>
+     var $j = jQuery.noConflict();
+  </script>
+  <%= csrf_meta_tags %>  
+
+</head>
+
+     <div id="content"><!-- Wraps everything -->
+          <div id="header"><!--The Header -->
+              <div class="page-width">
+
+                   <h1> Tea Harvesting </h1>
+                   <div id="user-cp"> <!--User Control Panel -->
+                      <p class="welcome">Welcome <em><%#= current_user.email %></em></p>
+                      <ul>
+                         <li>&nbsp;<%#= link_to "Logout", logout_path %></li>
+                      </ul>
+                   </div>
+                   <div class="console_header">
+                   </div>
+
+                   <div class="headernav">
+                       <div class="item <% if @select == "home" %> active <% end %>">
+                          <a class="console" href="/home">Home</a>
+                       </div>        
+                       <div class="item <% if @select == "estates" %> active <% end %>">
+                          <a class="console" href="/estates">Estates</a>
+                       </div>               
+                       <div class="item <% if @select == "sections" %> active <% end %>">
+                          <a class="console" href="/sections">Sections</a>
+                       </div>
+                       <div class="item <% if @select == "clones" %> active <% end %>">
+                          <a class="console" href="/clones">Clones</a>
+                       </div> 
+                       <div class="item <% if @select == "census" %> active <% end %>">
+                          <a class="console" href="/census">Census</a>
+                       </div>
+                       <div class="item <% if @select == "plant_spacings" %> active <% end %>">
+                          <a class="console" href="/plant_spacings">Plant Spacings</a>
+                       </div>
+		       <div class="item <% if @select == "plucking_rounds" %> active <% end %>">
+                          <a class="console" href="/plucking_rounds">Plucking</a>
+                       </div>
+                       <div class="item <% if @select == "yields" %> active <% end %>">
+                          <a class="console" href="/yields">Yields</a>
+                       </div>                                         
+                   </div>
+
+              </div> <!--Page Width Ends -->
+         </div> <!--The Header Ends -->
+    </div> <!--Content Ends -->
+
+<body> 
+<%= yield %>
+
+</body>
+</html>
+
+

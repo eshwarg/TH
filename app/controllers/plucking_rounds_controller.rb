@@ -1,5 +1,8 @@
 class PluckingRoundsController < ApplicationController
 
+  layout 'main'
+  before_filter :selected_tab
+
   def index
    @plucking_rounds = PluckingRound.find :all
   end
@@ -35,6 +38,12 @@ class PluckingRoundsController < ApplicationController
     @plucking_round = PluckingRound.find(params[:id])
     @plucking_round.destroy
     redirect_to plucking_rounds_path
+  end
+
+  private
+
+  def selected_tab
+   @select = "plucking_rounds"
   end
 
 end

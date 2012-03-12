@@ -1,5 +1,8 @@
 class SectionsController < ApplicationController 
 
+  layout 'main'
+  before_filter :selected_tab
+
   def index
    @sections = Section.find :all
   end
@@ -35,6 +38,13 @@ class SectionsController < ApplicationController
     @section = Section.find(params[:id])
     @section.destroy
     redirect_to sections_path
+  end
+
+  
+  private
+	
+  def selected_tab
+    @select = "sections"
   end
 
 
