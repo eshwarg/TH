@@ -1,0 +1,7 @@
+<p> Creation of Yield </p>
+
+<%= form_for @yield do |f| %>
+
+    <%= render :partial => 'form',  :locals => { :f => f }  %>
+ 
+<% end %>

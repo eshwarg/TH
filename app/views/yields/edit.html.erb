@@ -1,0 +1,7 @@
+<p> Updation of Yield </p>
+
+<%= form_for @yield, :url => yield_path(@yield) do |f| %>    
+
+    <%= render :partial => 'form',  :locals => { :f => f }  %>    
+
+<% end %>

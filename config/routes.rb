@@ -31,6 +31,7 @@ Th::Application.routes.draw do
   resources :clones
   resources :census
   resources :plucking_rounds
+  resources :yields
 
   # Sample resource route with sub-resources:
   #   resources :products do

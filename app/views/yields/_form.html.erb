@@ -1,0 +1,28 @@
+
+    <%= render "shared/error_messages", :target => @yield %>
+
+    <p>
+       <%= f.label :section_id, "Select Section" %><br />      
+       <%= f.collection_select :section_id, Section.find(:all), :id, :name,
+                               {:include_blank => "Select Section"}, {"style" => "width:250px" } %>
+    </p>
+
+    <p>
+       <%= f.label :proposed, "Proposed" %> <br/>
+       <%= f.text_field :proposed %>
+    </p>
+
+    <p>
+       <%= f.label :actual, "Actual" %> <br/>
+       <%= f.text_field :actual %>
+    </p>
+
+    <p>
+       <%= f.label :year, "Year" %> <br/>
+       <%= f.text_field :year %>
+    </p>
+
+    <p> 
+      <%= f.submit(@yield.new_record? ? "Create Yield" : "Update Yield") %> &nbsp; Or &nbsp;
+      <%= link_to "Cancel", yields_path %>
+    </p>
